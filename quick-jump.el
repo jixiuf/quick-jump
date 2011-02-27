@@ -1,4 +1,4 @@
-;;; quick-jump.el ---Remember current position,and jump back .
+;;;; quick-jump.el ---Remember current position,and jump back
 
 ;; Filename: quick-jump.el
 ;; Description:Remember current position,and jump back cyclely.
@@ -7,7 +7,7 @@
 ;; Copyright (C) 2011~, Joseph, all rights reserved.
 ;; Created: 2011-02-22
 ;; Version: 0.1.0
-;; URL: 
+;; URL: http://www.emacswiki.org/quick-jump.el
 ;; Keywords: quick jump marker
 ;; Compatibility: (Test on GNU Emacs 23.2.1).
 ;;
@@ -60,23 +60,6 @@
 ;;   is [15,10,5,1] ,it isn't [16,15,10,5,1],because 16-10<`qj-line-count'.
 ;;
 ;;
-;;   此段代码用于快速跳转,主要用于代码浏览或代码编写时在多个大跨度的位置间进行切换时使用
-;;   以我的键绑定为例
-;;      (global-set-key (kbd "C-,") 'quick-jump-go-back)
-;;      (global-set-key (kbd "C-.") 'quick-jump-push-marker)
-;;      (global-set-key (kbd "C->") 'quick-jump-clear-all-marker))
-;;      (global-set-key (kbd "C-<") 'quick-jump-go-forward)
-;;   
-;;   最简单的使用方法
-;;   `C-.' 会记录当前光标的位置
-;;   `C-,' 跳回到`C-.' 所记录的位置
-;;   当然你可以在文件不同的位置多处按下`C-.' ,而`C-,'则会按照先后顺序遍历这些位置
-;;   
-;;   但上面的使用方法有个弊端,必须先经`C-.' 保存位置后,才可以`C-,' 进行跳转,有时会忘掉`C-.',以
-;;    致无法跳转到这个位置.
-;;   为了解决这个问题 ,`C-,'不但可以进行跳转,也会根据当前的位置在特定的情况下自动将当前位置加入到
-;;   循环队列中
-
 ;;; Install:
 ;;
 ;; Just put quick-jump.el to your load-path.
@@ -251,5 +234,5 @@ by `quick-jump-go-back'"
 
 (provide 'quick-jump)
 
-;;;joseph-quick-jump.el ends here.
+;;;quick-jump.el ends here.
 
