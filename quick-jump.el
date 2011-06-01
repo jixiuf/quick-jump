@@ -1,4 +1,4 @@
-;;;; quick-jump.el ---Remember current position,and jump back
+;;; quick-jump.el ---Remember current position,and jump back
 
 ;; Filename: quick-jump.el
 ;; Description:Remember current position,and jump back cyclely.
@@ -46,7 +46,7 @@
 ;;   10, it's line 5 now.
 ;;   go back and go forward are related to `qj-current-marker'.
 ;;
-;;   when you `quick-jump-go-back' or `quick-jump-go-forward' 
+;;   when you `quick-jump-go-back' or `quick-jump-go-forward'
 ;;   it will decide whether push current position to `qj-marker-ring'
 ;;   automaticly or not . when the count of lines between current line
 ;;   and the line of `qj-current-marker' are larger than `qj-line-count',
@@ -72,8 +72,8 @@
 ;; (require 'quick-jump)
 ;; (quick-jump-default-keybinding)
 ;;
-;; or 
-;;   
+;; or
+;;
 ;; (autoload 'quick-jump-push-marker "quick-jump"
 ;;   " push current marker in ring. you can jump back" t)
 ;; (autoload 'quick-jump-go-back "quick-jump"
@@ -85,7 +85,7 @@
 ;; (autoload 'quick-jump-default-keybinding "quick-jump"
 ;;   "default keybindings for quick-jump" nil)
 ;; (quick-jump-default-keybinding)
-   
+
 
 ;;; Commands:
 ;;
@@ -154,7 +154,7 @@
                     (or (not (equal (marker-buffer qj-current-marker) (current-buffer)))
                        (>  (count-lines  (point) (marker-position qj-current-marker)) qj-line-count)))
           (ring-insert qj-marker-ring (point-marker)))
-        
+
         (when (ring-empty-p qj-marker-ring)
           (message "please push marker before jumping. using `quick-jump-push-marker'")))
 
@@ -190,10 +190,10 @@ by `quick-jump-go-back'"
                (equal (current-buffer) (marker-buffer qj-current-marker))
                (<  (count-lines  (point) (marker-position qj-current-marker)) qj-line-count))
       (setq qj-current-marker (ring-next qj-marker-ring qj-current-marker)))
-    
+
     (message (concat  "jump to " (prin1-to-string qj-current-marker)))
     (qj-action-go qj-current-marker)
-    
+
     (setq qj-current-marker (ring-next qj-marker-ring qj-current-marker))
     (setq qj-previous-action-flag "back")))
 
@@ -206,12 +206,12 @@ by `quick-jump-go-back'"
          (ring-member qj-marker-ring qj-current-marker))
     (when (and (not (equal qj-previous-action-flag "forward"))
                (equal (current-buffer) (marker-buffer qj-current-marker))
-               (<  (count-lines  (point) (marker-position qj-current-marker)) qj-line-count)) 
+               (<  (count-lines  (point) (marker-position qj-current-marker)) qj-line-count))
       (setq qj-current-marker (ring-previous qj-marker-ring qj-current-marker)))
-    
+
     (message (concat  "jump to " (prin1-to-string qj-current-marker)))
     (qj-action-go qj-current-marker)
-    
+
     (setq qj-current-marker (ring-previous qj-marker-ring qj-current-marker))
     (setq qj-previous-action-flag "forward")))
 
