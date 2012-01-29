@@ -1,7 +1,7 @@
-;;; quick-jump.el ---Remember current position,and jump back
+;;; quick-jump.el --- Remember current position,and jump back
 
 ;; Filename: quick-jump.el
-;; Description:Remember current position,and jump back cyclely.
+;; Description: Remember current position,and jump back cyclely.
 ;; Author: Joseph <jixiuf@gmail.com>
 ;; Maintainer: Joseph <jixiuf@gmail.com>
 ;; Copyright (C) 2011~, Joseph, all rights reserved.
