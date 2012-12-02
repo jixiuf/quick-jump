@@ -170,6 +170,7 @@
       (goto-char pos)))
   (setq qj-current-marker marker))
 
+;;;###autoload
 (defun quick-jump-push-marker()
   "push current marker in ring. you can jump back
 by `quick-jump-go-back'"
@@ -179,6 +180,7 @@ by `quick-jump-go-back'"
   (setq qj-current-marker (point-marker))
   (message "a marker is pushed."))
 
+;;;###autoload
 (defun quick-jump-go-back()
   "Go back in `qj-marker-ring'."
   (interactive)
@@ -197,6 +199,7 @@ by `quick-jump-go-back'"
     (setq qj-current-marker (ring-next qj-marker-ring qj-current-marker))
     (setq qj-previous-action-flag "back")))
 
+;;;###autoload
 (defun quick-jump-go-forward()
   "Go forward in `qj-marker-ring'."
   (interactive)
@@ -215,7 +218,7 @@ by `quick-jump-go-back'"
     (setq qj-current-marker (ring-previous qj-marker-ring qj-current-marker))
     (setq qj-previous-action-flag "forward")))
 
-
+;;;###autoload
 (defun quick-jump-clear-all-marker()
   "clear all marker in `qj-marker-ring'."
   (interactive)
@@ -235,4 +238,3 @@ by `quick-jump-go-back'"
 (provide 'quick-jump)
 
 ;;;quick-jump.el ends here.
-
