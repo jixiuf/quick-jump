@@ -84,7 +84,10 @@
 ;;   "clear all marker in `qj-marker-ring'.")
 ;; (autoload 'quick-jump-default-keybinding "quick-jump"
 ;;   "default keybindings for quick-jump" nil)
-;; (quick-jump-default-keybinding)
+;; (global-set-key (kbd "C-,") 'quick-jump-go-back)
+;; (global-set-key (kbd "C-.") 'quick-jump-push-marker)
+;; (global-set-key (kbd "C-<") 'quick-jump-go-forward)
+;; (global-set-key (kbd "C->") 'quick-jump-clear-all-marker)
 
 
 ;;; Commands:
