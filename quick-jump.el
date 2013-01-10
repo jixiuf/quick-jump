@@ -181,7 +181,8 @@ by `quick-jump-go-back'"
   (when (not (ring-member qj-marker-ring (point-marker)))
     (ring-insert qj-marker-ring (point-marker)))
   (setq qj-current-marker (point-marker))
-  (message "a marker is pushed."))
+  (when (called-interactively-p 'interactive)
+    (message "a marker is pushed.")))
 
 ;;;###autoload
 (defun quick-jump-go-back()
